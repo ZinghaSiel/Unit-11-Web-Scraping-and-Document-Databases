@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission To Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body style="background:lightsalmon;">
+    <h2>Scraped!</h2>
+    <p><a class="btn btn-primary btn-md" href="/" role="button">Return Home</a></p>
+    <div class="container" style="background:lightsalmon;">
+        <div class="jumbotron text-center" style="width: 100%;">
+            <h1>Mission To Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+        <h1 style="color:white; text-align:center; margin-bottom:30px; border-bottom:1px solid white; padding-bottom:10px;">
+            Mars Information
+        </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Latest Mars News</h3>
+                    </div>
+                    <div class="panel-body">
+                        <h4>{{Mars_Data.News_Title}}</h4>
+                        <h5>{{Mars_Data.News_Date}}</h5>
+                        <p>{{Mars_Data.News_Paragraph}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Weather on Mars</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{Mars_Data.Mars_Weather}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Mars Facts</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            {{Mars_Data.Mars_Facts|safe }}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 style="color:white; text-align:center; margin-bottom:30px; border-bottom:1px solid white; padding-bottom:10px;">
+            Featured Mars Image
+        </h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Featured Mars Image</h3>
+                    </div>
+                    <div class="panel-body">
+                        <img src= {{Mars_Data.Featured_Image_URL}} alt="Featured Image" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        <h1 style="color:white; text-align:center; margin-bottom:30px; border-bottom:1px solid white; padding-bottom:10px;">
+            Mars Hemispheres
+        </h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="thumbnail" style="width: 50%; float:left;">
+                            <img src= {{ mars_data.hemisphere_imgs[0].img_url }} alt="Hemisphere1">
+                            <div class="caption">
+                                <h4>{{Mars_Data.Hemisphere_Image_URLs[0]["Title"]}}</h4>
+                            </div>
+                        </div>
+                        <div class="thumbnail" style="width: 50%; float:left;">
+                            <img src= {{ mars_data.hemisphere_imgs[2].img_url }} alt="Hemisphere2">
+                            <div class="caption">
+                                <h4>{{Mars_Data.Hemisphere_Image_URLs[1]["Title"]}}</h4>
+                            </div>
+                        </div>
+                        <div class="thumbnail" style="width: 50%; float:left;">
+                            <img src= {{ mars_data.hemisphere_imgs[1].img_url }} alt="Hemisphere3">
+                            <div class="caption">
+                                <h4>{{Mars_Data.Hemisphere_Image_URLs[2]["Title"]}}</h4>
+                            </div>
+                        </div>
+                        <div class="thumbnail" style="width: 50%; float:left;">
+                            <img src= {{ mars_data.hemisphere_imgs[3].img_url }} alt="Hemisphere4">
+                            <div class="caption">
+                                <h4>{{Mars_Data.Hemisphere_Image_URLs[3]["Title"]}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--<script src="App.py"></script>-->
+<!--<script src="scrape_mars.py"></script>-->
+</html>
